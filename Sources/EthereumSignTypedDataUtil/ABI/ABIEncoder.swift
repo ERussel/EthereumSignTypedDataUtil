@@ -120,7 +120,7 @@ public final class ABIEncoder {
     ///
     /// - Throws: `ABIError.integerOverflow` if the value has more than 256 bits.
     public func encode(_ value: BigInt) throws {
-        guard let serialized = value.serialize(bitWidth: ABIEncoder.encodedIntSize) else {
+        guard let serialized = value.typedDataUtil.serialize(bitWidth: ABIEncoder.encodedIntSize) else {
             throw ABIError.integerOverflow
         }
         data.append(serialized)

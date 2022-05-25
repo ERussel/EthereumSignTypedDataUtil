@@ -198,7 +198,7 @@ extension EIP712TypedData {
             if let length = Int(type.dropFirst("bytes".count)),
                 let value = data?.stringValue {
                 if value.starts(with: "0x"),
-                    let hex = Data(hexString: value) {
+                   let hex = Data(hexString: value) {
                     return try? ABIValue(hex, type: .bytes(length))
                 } else {
                     return try? ABIValue(Data(Array(value.utf8)), type: .bytes(length))

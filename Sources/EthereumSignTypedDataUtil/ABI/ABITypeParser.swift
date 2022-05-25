@@ -64,7 +64,7 @@ struct ABITypeParser {
         guard let matcher = try? NSRegularExpression(pattern: TypeParsingExpressions.typeEatingRegex, options: NSRegularExpression.Options.dotMatchesLineSeparators) else {
             return (nil, nil)
         }
-        let match = matcher.matches(in: string, options: NSRegularExpression.MatchingOptions.anchored, range: string.fullNSRange)
+        let match = matcher.matches(in: string, options: NSRegularExpression.MatchingOptions.anchored, range: string.typedDataUtil.fullNSRange)
         guard match.count == 1 else {
             return (nil, nil)
         }
@@ -101,7 +101,7 @@ struct ABITypeParser {
         guard let matcher = try? NSRegularExpression(pattern: TypeParsingExpressions.arrayEatingRegex, options: NSRegularExpression.Options.dotMatchesLineSeparators) else {
             return (nil, nil)
         }
-        let match = matcher.matches(in: string, options: NSRegularExpression.MatchingOptions.anchored, range: string.fullNSRange)
+        let match = matcher.matches(in: string, options: NSRegularExpression.MatchingOptions.anchored, range: string.typedDataUtil.fullNSRange)
         guard match.count == 1 else { return (nil, nil) }
         var tail: String = ""
         let type: ABIType

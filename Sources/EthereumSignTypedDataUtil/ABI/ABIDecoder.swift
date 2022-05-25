@@ -131,7 +131,7 @@ public final class ABIDecoder {
     /// Decodes an address
     public func decodeAddress() -> String {
         let addressLength = 20
-        let ethereumAddress = data.subdata(in: offset + ABIEncoder.encodedIntSize - addressLength ..< offset + ABIEncoder.encodedIntSize).hexString
+        let ethereumAddress = data.subdata(in: offset + ABIEncoder.encodedIntSize - addressLength ..< offset + ABIEncoder.encodedIntSize).typedDataUtil.hexString
         offset += ABIEncoder.encodedIntSize
         return ethereumAddress
     }

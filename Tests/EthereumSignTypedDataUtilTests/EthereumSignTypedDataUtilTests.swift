@@ -15,7 +15,7 @@ final class EthereumSignTypedDataUtilTests: XCTestCase {
         let result = data.sha3(.keccak256)
         
         // Then:
-        XCTAssertEqual(result.hexString, expectResult)
+        XCTAssertEqual(result.typedDataUtil.hexString, expectResult)
     }
     
     func testHashingPersonalSign() throws {
@@ -31,13 +31,13 @@ final class EthereumSignTypedDataUtilTests: XCTestCase {
         var signingData = Data()
         signingData.append(0x19)
         signingData.append(0x00)
-        signingData.append(ethAddress.hexDecodedData)
+        signingData.append(ethAddress.typedDataUtil.hexDecodedData)
         signingData.append(rawData)
         
         let result = signingData.sha3(.keccak256)
         
         // Then:
-        XCTAssertEqual(result.hexString, expectResult)
+        XCTAssertEqual(result.typedDataUtil.hexString, expectResult)
     }
     
     func testHashingTypeDataV3() throws {
@@ -50,7 +50,7 @@ final class EthereumSignTypedDataUtilTests: XCTestCase {
         let result = try typedData.signableHash(version: EIP712TypedDataSignVersion.v3)
         
         // Then:
-        XCTAssertEqual(result.hexString, expectResult)
+        XCTAssertEqual(result.typedDataUtil.hexString, expectResult)
     }
     
     func testHashingTypeDataV4() throws {
@@ -63,7 +63,7 @@ final class EthereumSignTypedDataUtilTests: XCTestCase {
         let result = try typedData.signableHash(version: EIP712TypedDataSignVersion.v4)
         
         // Then:
-        XCTAssertEqual(result.hexString, expectResult)
+        XCTAssertEqual(result.typedDataUtil.hexString, expectResult)
     }
     
     func testEncodeAddress() throws {
@@ -77,7 +77,7 @@ final class EthereumSignTypedDataUtilTests: XCTestCase {
         try encoder.encode(abiValue)
         
         // Then:
-        XCTAssertEqual(encoder.data.hexString, expectResult)
+        XCTAssertEqual(encoder.data.typedDataUtil.hexString, expectResult)
         
     }
     
