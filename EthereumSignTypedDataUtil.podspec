@@ -16,6 +16,10 @@ Pod::Spec.new do |spec|
   spec.framework  = "Foundation"
   spec.dependency "BigInt", "~> 5.0"
   spec.dependency "CryptoSwift", "~> 1.4"
+  
+  spec.test_spec 'Tests' do |test_spec|
+    test_spec.source_files = 'Tests/**/*.swift'
+  end
 
 end
 
