@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "EthereumSignTypedDataUtil"
-  spec.version      = "0.1.1"
+  spec.version      = "0.1.2"
   spec.summary      = "A collection of functions for signing Ethereum typed data hash(EIP712)."
 
   spec.homepage     = "https://github.com/portto/EthereumSignTypedDataUtil"
