@@ -9,7 +9,7 @@ import Foundation
 
 extension Data {
     
-    public init?(hexString: String) {
+    init?(hexString: String) {
         let string: String
         if hexString.hasPrefix("0x") {
             string = String(hexString.dropFirst(2))
